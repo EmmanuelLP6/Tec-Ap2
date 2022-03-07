@@ -29,8 +29,8 @@
             $tabla_usuarios = new \App\Models\Tabla_usuarios;
 
             $usuario = $tabla_usuarios->login($email, hash("sha256", $password));
-
             if($usuario != null){
+
             }//end if 
             else{
                 mensaje("Correo y/o contraseña son incorrectas, intente de nuevo.", DANGER_ALERT);
