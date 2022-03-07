@@ -78,6 +78,10 @@ defined('EXIT_DATABASE')       || define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN')      || define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      || define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 
+
+//************************************************************************************
+//********************************* CONSTANTES PANEL ********************************
+//************************************************************************************
 //RUTAS BASE
 define("RECURSOS_PANEL_CSS", "recursos_panel/css/");
 define("RECURSOS_PANEL_SCSS", "recursos_panel/scss/");
@@ -95,6 +99,17 @@ define("RECURSOS_PORTAL_FONTS", "recursos-portal/fonts/");
 define("RECURSOS_PANEL_IMG", "recursos-portal/img/");
 define("RECURSOS_PORTAL_SCSS", "recursos-portal/scss/");
 define("RECURSOS_PORTAL_PLUGINS", "recursos-portal/plugins/");
+
+//************************************************************************************
+//********************************* CONSTANTES USUARIO ********************************
+//************************************************************************************
+//RUTAS BASE
+define("RECURSOS_USUARIO_CSS", "recursos-acceso/css/");
+define("RECURSOS_USUARIO_SCSS", "recursos-acceso/scss/");
+define("RECURSOS_USUARIO_JS", "recursos-acceso/js/");
+define("RECURSOS_USUARIO_VENDOR", "recursos-acceso/vendor/");
+define("RECURSOS_USUARIO_FONTS", "recursos-acceso/fonts/");
+define("RECURSOS_USUARIO_IMAGES", "recursos-acceso/images/");
 
 //************************************************************************************
 //********************************* CONSTANTES PANEL / TAREA**************************
@@ -123,6 +138,17 @@ define("PAGINA_ACERCA_DE",'pagina_acerca_de');
 //********************************* CONSTANTES GENERALES *********************************
 //****************************************************************************************
 
+//CONSTANTES
+define("SUCCESS_ALERT", 1);
+define("DANGER_ALERT", 2);
+define("WARNING_ALERT", 3);
+define("INFO_ALERT", 4);
+
+
 //RUTAS BASE
+define("RECURSOS_CONTENIDO_IMAGE", "recursos-contenido/images/");
+define("RECURSOS_CONTENIDO_PLUGINS", "recursos-contenido/plugins/");
+
+
 define("CONTENIDO_IMAGENES", "imagenes/usuarios/");
 define("CONTENIDO_IMAGENES_CALZADO", "imagenes/calzado/");

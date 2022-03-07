@@ -32,8 +32,15 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 // $routes->get('/', 'Home::index');
-
+//CONSTANTES DEL PORTAL
 $routes->get('/', 'Portal\Inicio::index',['as' => 'inicio']);
+
+//CONSTANTES DEL USUARIO
+$routes->get('/acceso', 'Usuario\Acceso::index',['as' => 'acceso']);
+$routes->post('/validar_acceso', 'Usuario\Acceso::validar_acceso',['as' => 'validar_acceso']);
+
+//CONSTANTES DEL PANEL
+
 
 /*
  * --------------------------------------------------------------------

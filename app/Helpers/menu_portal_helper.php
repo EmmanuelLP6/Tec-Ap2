@@ -87,31 +87,24 @@
         $menu = configurar_menu_portal($pagina_actual);
         // d($menu);
         $html = '';
-        // $html='<ul class="navbar-nav ml-auto">';
-        //     foreach ($menu as $opcion) {
-        //         if(sizeof($opcion['submenu']) > 0){
-        //             $html.='
-        //                 <li class="nav-item dropdown">
-        //                     <a class="nav-link dropdown-toggle" href="#" id="'.$opcion['text'].'" data-toggle="dropdown"
-        //                     aria-haspopup="true" aria-expanded="false"><i class="'.$opcion['icon'].'" aria-hidden="true"></i> '.$opcion['text'].'</a>
-        //                     <div class="dropdown-menu" aria-labelledby="'.$opcion['text'].'">';
-        //                         foreach ($opcion['submenu'] as $sub_opcion_menu) {
-        //                             $html.='<a class="dropdown-item" href="'.$sub_opcion_menu['href'].'">'.$sub_opcion_menu['text'].'</a>';
-        //                         }//end foreach
-        //                     $html.='</div>
-        //                 </li>
-        //             ';
-        //         }//End if 
-        //         else{
-        //             $html.='<li class="nav-item ';$html .= ($opcion['is_active'] != FALSE) ? 'active' : '' ;$html.='">
-        //                         <a href="'.$opcion['href'].'" class="nav-link">
-        //                             <i class="'.$opcion['icon'].'" aria-hidden="true"></i> '.$opcion["text"].'
-        //                         </a>
-        //                     </li>';
-        //         }//end else
-        //     }//end foreach
-        // $html.='</ul>';
-        dd($html);
+        $html.='<ul class="nav navbar-nav menu_nav ml-auto">';
+            foreach ($menu as $opcion) {
+                if(sizeof($opcion['submenu']) > 0){
+                    $html.='<li class="nav-item submenu dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                aria-expanded="false">'.$opcion['text'].'</a>
+                                <ul class="dropdown-menu">';
+                                    foreach ($opcion['submenu'] as $sub_opcion_menu) {
+                                        $html.='<li class="nav-item"><a class="nav-link" href="'.$sub_opcion_menu['href'].'">'.$sub_opcion_menu['text'].'</a></li>';
+                                    }//end foreach
+                                $html.='</ul>
+                            </li>';
+                }//end if 
+                else{
+                    $html.='<li class="nav-item';$html.= ($opcion['is_active'] != FALSE) ? ' active ' : '' ;$html.='"><a class="nav-link" href="'.$opcion['href'].'">'.$opcion['text'].'</a></li>';
+                }
+            }//end foreach
+        $html.='</ul>';
         return $html;
     }//end crear_menu_portal
 
