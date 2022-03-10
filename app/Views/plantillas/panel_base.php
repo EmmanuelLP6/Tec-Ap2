@@ -56,8 +56,8 @@
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">Usuario</span>
-                                    <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $nombre_usuario; ?></span>
+                                    <img class="img-profile rounded-circle" src="<?= $imagen_usuario; ?>">
                                 </a>
                                 <!-- Dropdown - User Information -->
                                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -124,15 +124,20 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">¿Estás seguro de cerrar sesión?</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">¿<?= $nombre_usuario;?> estás seguro de cerrar sesión?</h5>
                         <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
                         </button>
                     </div>
-                    <div class="modal-body">Selecciona "Cerrar" si tu estas listo para cerrar sesion.</div>
+                    <div class="modal-body">
+                        <center>
+                            <img src="<?= $imagen_usuario; ?>" alt="imagen_usuario" class="img-profile rounded-circle" height="150px"><br>
+                            Selecciona "Cerrar" si tu estas listo para cerrar sesión.
+                        </center>
+                    </div>
                     <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                        <a class="btn btn-primary" href="login.html">Salir</a>
+                        <button class="btn btn-danger" type="button" data-dismiss="modal">Cancelar</button>
+                        <a class="btn btn-success" href="<?= route_to('cerrar_acceso');?>">Cerrar</a>
                     </div>
                 </div>
             </div>
@@ -145,6 +150,13 @@
         <script src="<?= base_url(RECURSOS_PANEL_VENDOR.'jquery-easing/jquery.easing.min.js');?>"></script>
         <!-- Custom scripts for all pages-->
         <script src="<?= base_url(RECURSOS_PANEL_JS.'sb-admin-2.min.js');?>"></script>
+        <!-- ********************************************************** -->
+        <!-- **************** BOOTSTRAP NOTIFY********************** -->
+        <script src="<?= base_url(RECURSOS_CONTENIDO_PLUGINS.'bootstrap-notify.min.js');?>"></script>
+        <script>
+            <?= mostrar_mensaje(); ?>
+        </script>
+
         <!-- ============================================================== -->
         <!-- This page plugins -->
         <?= $this->renderSection("js") ?>

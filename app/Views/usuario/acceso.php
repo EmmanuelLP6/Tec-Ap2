@@ -21,7 +21,7 @@
     <link rel="stylesheet" type="text/css" href="<?= base_url(RECURSOS_USUARIO_CSS.'util.css');?>">
     <link rel="stylesheet" type="text/css" href="<?= base_url(RECURSOS_USUARIO_CSS.'main.css');?>">
     <!--===============================================================================================-->
-    <link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
+    <!-- <link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css"> -->
 </head>
 
 <body>
@@ -110,8 +110,8 @@
     <!-- ********************************************************** -->
     <!-- **************** BOOTSTRAP NOTIFY********************** -->
     <script src="<?= base_url(RECURSOS_CONTENIDO_PLUGINS.'bootstrap-notify.min.js');?>"></script>
-    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script> -->
 
     <script>
         <?= mostrar_mensaje(); ?>
@@ -119,27 +119,27 @@
     
     <script>
         // just for the demos, avoids form submit
-        $( "#registrationForm" ).validate({
-            success: "valid",
-            rules: {
-                email: {
-                    required: true,
-                    email: true 
-                },
-                password: {
-                    required: true
-                }
-            },
-            messages: {
-                email:{
-                    required: "Email es requerido.",
-                    email: 'El email esta mal formado (ejemplo@domino.com).'
-                },
-                password:{
-                    required: "Password es requerida."
-                }
-            },
-        });
+        // $( "#registrationForm" ).validate({
+        //     success: "valid",
+        //     rules: {
+        //         email: {
+        //             required: true,
+        //             email: true 
+        //         },
+        //         password: {
+        //             required: true
+        //         }
+        //     },
+        //     messages: {
+        //         email:{
+        //             required: "Email es requerido.",
+        //             email: 'El email esta mal formado (ejemplo@domino.com).'
+        //         },
+        //         password:{
+        //             required: "Password es requerida."
+        //         }
+        //     },
+        // });
     </script>
 
 </body>
