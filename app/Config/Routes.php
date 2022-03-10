@@ -44,6 +44,16 @@ $routes->post('/validar_acceso', 'Usuario\Acceso::validar_acceso',['as' => 'vali
 
 /*
  * --------------------------------------------------------------------
+ * R O U T E S   T O  P A G E 
+ * --------------------------------------------------------------------
+ */
+//Dashboard
+$routes->get('/dashboard', 'Panel\Dashboard::index', ['as' => 'dashboard']);
+//Usuarios
+$routes->get('/usuarios', 'Panel\Usuarios::index', ['as' => 'usuarios']);
+$routes->get('/usuario_nuevo', 'Panel\Usuario_nuevo::index', ['as' => 'usuario_nuevo']);
+/*
+ * --------------------------------------------------------------------
  * Additional Routing
  * --------------------------------------------------------------------
  *

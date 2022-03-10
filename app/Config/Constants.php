@@ -83,11 +83,12 @@ defined('EXIT__AUTO_MAX')      || define('EXIT__AUTO_MAX', 125); // highest auto
 //********************************* CONSTANTES PANEL ********************************
 //************************************************************************************
 //RUTAS BASE
-define("RECURSOS_PANEL_CSS", "recursos_panel/css/");
-define("RECURSOS_PANEL_SCSS", "recursos_panel/scss/");
-define("RECURSOS_PANEL_JS", "recursos_panel/js/");
-// define("RECURSOS_PANEL_IMG", "recursos_panel/img/");
-// define("RECURSOS_PANEL_PLUGINS", "recursos_panel/plugins/");
+define("RECURSOS_PANEL_CSS", "recursos-panel/css/");
+define("RECURSOS_PANEL_SCSS", "recursos-panel/scss/");
+define("RECURSOS_PANEL_VENDOR", "recursos-panel/vendor/");
+define("RECURSOS_PANEL_IMG", "recursos-panel/img/");
+define("RECURSOS_PANEL_JS", "recursos-panel/js/");
+
 
 //************************************************************************************
 //********************************* CONSTANTES PORTAL ********************************
@@ -96,7 +97,7 @@ define("RECURSOS_PANEL_JS", "recursos_panel/js/");
 define("RECURSOS_PORTAL_CSS", "recursos-portal/css/");
 define("RECURSOS_PORTAL_JS", "recursos-portal/js/");
 define("RECURSOS_PORTAL_FONTS", "recursos-portal/fonts/");
-define("RECURSOS_PANEL_IMG", "recursos-portal/img/");
+define("RECURSOS_PORTAL_IMG", "recursos-portal/img/");
 define("RECURSOS_PORTAL_SCSS", "recursos-portal/scss/");
 define("RECURSOS_PORTAL_PLUGINS", "recursos-portal/plugins/");
 
@@ -118,9 +119,12 @@ define("TAREA_DASHBOARD",'tarea_dashboard');
 define("TAREA_USUARIOS",'tarea_usuarios');
 define("TAREA_USUARIO_NUEVO",'tarea_usuario_nuevo');
 define("TAREA_USUARIO_DETALLES",'tarea_usuario_detalles');
-define("TAREA_CALZADOS",'tarea_calzados');
+define("TAREA_CATALOGO",'tarea_catalogo');
+define("TAREA_CATALOGO_DAMA",'tarea_catalogo_dama');
+define("TAREA_CATALOGO_CABALLERO",'tarea_catalogo_caballero');
 define("TAREA_CALZADO_NUEVO",'tarea_calzado_nuevo');
 define("TAREA_CALZADO_DETALLES",'tarea_calzado_detalles');
+define("TAREA_OFERTA",'tarea_oferta');
 define("TAREA_PERFIL",'tarea_perfil');
 
 //************************************************************************************
