@@ -151,10 +151,10 @@ define("ROLES", array(444 => ROL_SUPERADMIN,
 
 //PERMISO A LAS TAREAS POR ROLES
 define("PERMISOS_ADMIN", array(
+                            TAREA_DASHBOARD,
                             TAREA_USUARIOS,
                             TAREA_USUARIO_NUEVO,
                             TAREA_USUARIO_DETALLES,
-                            
                         ));
 
 define("PERMISOS_OPERADOR", array(

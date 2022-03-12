@@ -10,7 +10,7 @@
             //     return redirect()->to(route_to('dashboard'));
             // }//end if existe usuario logeado
             // else{
-                return $this->crear_vista("usuario/acceso");
+                return $this->crear_vista("usuario/new_acceso");
             // }//end else existe usuario logeado
         }//end index
 
@@ -18,7 +18,7 @@
             return view($nombre_vista);
         }//end crear_vista
 
-
+          
         public function validar_acceso(){
             //Obtener datos del formulario
             $email = $this->request->getPost("email");
