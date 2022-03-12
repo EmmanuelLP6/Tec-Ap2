@@ -149,21 +149,6 @@ define("ROLES", array(444 => ROL_SUPERADMIN,
                       784 => ROL_OPERADOR
                   ));
 
-//PERMISO A LAS TAREAS POR ROLES
-define("PERMISOS_ADMIN", array(
-                            TAREA_DASHBOARD,
-                            TAREA_USUARIOS,
-                            TAREA_USUARIO_NUEVO,
-                            TAREA_USUARIO_DETALLES,
-                        ));
-
-define("PERMISOS_OPERADOR", array(
-                            TAREA_DASHBOARD,
-                            TAREA_CATALOGO,
-                            TAREA_CATALOGO_DAMA,
-                            TAREA_CATALOGO_CABALLERO,
-                        ));
-
 //CONSTANTES PARA DETEMINAR EL SEXO DEL USUARIO
 define("SEXO_FEMENINO", 0);
 define("SEXO_MASCULINO", 1);
@@ -174,6 +159,21 @@ define("DANGER_ALERT", 2);
 define("WARNING_ALERT", 3);
 define("INFO_ALERT", 4);
 
+
+//PERMISO A LAS TAREAS POR ROLES
+define("PERMISOS_ADMIN", array(
+    TAREA_DASHBOARD,
+    TAREA_USUARIOS,
+    TAREA_USUARIO_NUEVO,
+    TAREA_USUARIO_DETALLES,
+));
+
+define("PERMISOS_OPERADOR", array(
+    TAREA_DASHBOARD,
+    TAREA_CATALOGO,
+    TAREA_CATALOGO_DAMA,
+    TAREA_CATALOGO_CABALLERO,
+));
 
 //RUTAS BASE
 define("RECURSOS_CONTENIDO_IMAGE", "recursos-contenido/images/");

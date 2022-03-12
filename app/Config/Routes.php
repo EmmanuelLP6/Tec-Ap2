@@ -38,6 +38,7 @@ $routes->get('/', 'Portal\Inicio::index',['as' => 'inicio']);
 //CONSTANTES DEL USUARIO
 $routes->get('/acceso', 'Usuario\Acceso::index',['as' => 'acceso']);
 $routes->get('/cerrar_acceso', 'Usuario\Cerrar_acceso::index',['as' => 'cerrar_acceso']);
+//validar acceso
 $routes->post('/validar_acceso', 'Usuario\Acceso::validar_acceso',['as' => 'validar_acceso']);
 
 //CONSTANTES DEL PANEL
