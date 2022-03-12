@@ -10,19 +10,6 @@
     <meta name="author" content="">
 
     <title>Login|TenisShop</title>
-    <!-- Show the validation -->
-    <style>
-        .has-error .help-block{
-        line-height: 45px;
-        color: red;
-        }
-        .has-error input{
-            border-color: red !important;
-        }
-        .has-success input{
-            border-color: green !important;
-        }
-    </style>
     <!-- Custom fonts for this template-->
     <link href="<?= base_url(RECURSOS_PANEL_VENDOR.'fontawesome-free/css/all.min.css');?>" rel="stylesheet" type="text/css">
     <link
@@ -31,7 +18,21 @@
 
     <!-- Custom styles for this template-->
     <link href="<?= base_url(RECURSOS_PANEL_CSS.'sb-admin-2.min.css');?>" rel="stylesheet">
+    <!-- BostrapValidator css -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css"/>
+    <!-- Show the validation -->
+    <style>
+        .has-error .help-block{
+            line-height: 45px;
+            color: red;
+        }
+        .has-error input{
+            border-color: red !important;
+        }
+        .has-success input{
+            border-color: green !important;
+        }
+    </style>
 </head>
 
 <body class="bg-gradient-primary">
@@ -53,7 +54,7 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Ingresa tus credenciales de acceso</h1>
                                     </div>
-                                    <?= form_open('validar_acceso',["class"=>"user","id"=>"registrationForm"]);?>
+                                    <?= form_open('validar_acceso',["class"=>"user", "id"=>"formulario-acceso"]);?>
                                         <div class="form-group">
                                             <?php
                                                 $input = array(
@@ -92,10 +93,10 @@
                                             ?>
                                         
                                     <?= form_close();?>
-                                        <hr>
-                                        <a href="<?= route_to('inicio');?>" class="btn btn-google btn-user btn-block">
-                                            <i class="fab fa-google fa-fw"></i> Inicio
-                                        </a>
+                                    <hr>
+                                    <a href="<?= route_to('inicio');?>" class="btn btn-google btn-user btn-block">
+                                        <i class="fab fa-google fa-fw"></i> Inicio
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -119,7 +120,8 @@
     <script src="<?= base_url(RECURSOS_PANEL_JS.'js/sb-admin-2.min.js');?>"></script>
     <!-- BootstrapValidator JS -->
     <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.bootstrapvalidator/0.5.0/js/bootstrapValidator.min.js"></script>
+
+    <script type="text/javascript" src="<?= base_url(RECURSOS_CONTENIDO_PLUGINS.'bostrap-validator.min.js')?>"></script>
 
     <!-- ********************************************************** -->
     <!-- **************** BOOTSTRAP NOTIFY********************** -->
@@ -132,7 +134,7 @@
     <!-- Validar formulario login -->
     <script>
         $(document).ready(function () {
-            $('#registrationForm').bootstrapValidator({
+            $('#formulario-acceso').bootstrapValidator({
                 // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
                 feedbackIcons: {
                     valid: 'glyphicon glyphicon-ok',
@@ -146,10 +148,10 @@
                                 message: 'Email es requerido'
                             },
                             emailAddress: {
-                                message: 'Email esta mal formado(ejemplo@live.com)'
+                                message: 'Email esta mal formado (ejemplo@live.com).'
                             }
-                        }
-                    },
+                        }//validacion
+                    },//end email
                     password: {
                         validators: {
                             notEmpty: {
@@ -161,7 +163,7 @@
                             }
                         }
                     }
-                }
+                }//end fields
             });
         });
     </script>
