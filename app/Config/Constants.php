@@ -142,11 +142,12 @@ define("PAGINA_ACERCA_DE",'pagina_acerca_de');
 //********************************* CONSTANTES GENERALES *********************************
 //****************************************************************************************
 //ROLES
-define("ROL_SUPERADMIN",  array('nombre'=>'Superadmin',      'clave' => '444'));
-define("ROL_OPERADOR",    array('nombre'=>'Operador',        'clave' => '784'));
+define("ROL_SUPERADMIN",  array('nombre'=>'Superadmin',      'clave' => '784'));
+define("ROL_OPERADOR",    array('nombre'=>'Operador',        'clave' => '444'));
 
-define("ROLES", array(444 => ROL_SUPERADMIN,
-                      784 => ROL_OPERADOR
+define("ROLES", array(
+                        784 => ROL_SUPERADMIN,
+                        444 => ROL_OPERADOR
                   ));
 
 //CONSTANTES PARA DETEMINAR EL SEXO DEL USUARIO

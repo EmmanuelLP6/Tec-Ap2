@@ -8,8 +8,11 @@
         //instancia de la sesion
         $session = session();
         // d($session);
-        // dd(PERMISOS_ADMIN);
-        // dd($session->rol_actual);
+        // d(PERMISOS_ADMIN);
+        // d(PERMISOS_ADMIN);
+        // d($session->rol_actual);
+        // dd(ROL_SUPERADMIN['clave']);
+        
         switch ($session->rol_actual) {
             case ROL_SUPERADMIN['clave']:
                 $permiso = in_array($tarea, PERMISOS_ADMIN);
@@ -22,6 +25,6 @@
             default:
                 $permiso = FALSE;
                 break;
-        }
+        }//end switch
         return $permiso;
-    }//end
+    }//end acceso_usuario

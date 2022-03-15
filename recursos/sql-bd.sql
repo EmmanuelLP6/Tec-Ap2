@@ -33,7 +33,7 @@ CREATE TABLE usuarios (
 INSERT INTO usuarios (estatus_usuario, id_usuario, nombre_usuario, ap_paterno_usuario, ap_materno_usuario,
 sexo_usuario, imagen_usuario, email_usuario, password_usuario, id_rol) 
 VALUES
-('2', NULL, 'Juan Pablo', 'Gutierres', 'Ramirez',1,NULL,'juan-pablo@live.com',SHA2('abc123',0),444),
-('2', NULL, 'Cris', 'Mendoza', 'Rivas',1,NULL,'cris-mendoza@live.com',SHA2('abc123',0),784);
+('2', NULL, 'Juan Pablo', 'Gutierres', 'Ramirez',1,NULL,'juan-pablo@live.com',SHA2('abc123',0),784),
+('2', NULL, 'Cris', 'Mendoza', 'Rivas',1,NULL,'cris-mendoza@live.com',SHA2('abc123',0),444);
 
  select * from usuarios where password_usuario='juan-pablo@live.com' and password_usuario = sha2('abc123',0);
