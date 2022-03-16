@@ -12,9 +12,8 @@ CREATE TABLE roles (
 )ENGINE=InnoDB;
 
 INSERT INTO roles (estatus_rol, id_rol, rol) VALUES
-('2', 444, 'Superadmin'),
-('2', 784, 'Operador');
-
+('2', 784, 'Superadmin'),
+('2', 444, 'Operador');
 
 CREATE TABLE usuarios (
     estatus_usuario TINYINT(1) NOT NULL DEFAULT 2 COMMENT '2-> Habilitado, -1-> Deshabilitado',

@@ -7,6 +7,14 @@
     //Funcion para establecer el horario en México
     date_default_timezone_set("America/Mexico_City");
 
+    // =======================================================
+    // Función para obtener la fecha actual en formato
+    // "0000-00-00 00:00:00"
+    // =======================================================
+    function fecha_actual(){
+        return date('Y-m-d H:i:s');
+    }//end fecha_actual
+
     // *****************************************************************************
     // *************************** FUNCIONES PRIMORDIALES **************************
     // *****************************************************************************

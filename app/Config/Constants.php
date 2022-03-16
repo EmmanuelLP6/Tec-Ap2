@@ -146,8 +146,13 @@ define("ROL_SUPERADMIN",  array('nombre'=>'Superadmin',      'clave' => '784'));
 define("ROL_OPERADOR",    array('nombre'=>'Operador',        'clave' => '444'));
 
 define("ROLES", array(
-                        784 => ROL_SUPERADMIN,
-                        444 => ROL_OPERADOR
+                        784 => 'Super Administrador',
+                        444 => 'Operador'
+                  ));
+
+define("SEXO", array(
+                        0 => 'Femenino',
+                        1 => 'Masculino'
                   ));
 
 //CONSTANTES PARA DETEMINAR EL SEXO DEL USUARIO
@@ -160,6 +165,9 @@ define("DANGER_ALERT", 2);
 define("WARNING_ALERT", 3);
 define("INFO_ALERT", 4);
 
+//CONSTANTES PARA VALIDAR EL ESTATUS 
+define("ESTATUS_HABILITADO",2);
+define("ESTATUS_DESHABILITADO",-1);
 
 //PERMISO A LAS TAREAS POR ROLES
 define("PERMISOS_ADMIN", array(
@@ -176,10 +184,9 @@ define("PERMISOS_OPERADOR", array(
     TAREA_CATALOGO_CABALLERO,
 ));
 
-//RUTAS BASE
+//RUTAS BASE 
 define("RECURSOS_CONTENIDO_IMAGE", "recursos-contenido/images/");
 define("RECURSOS_CONTENIDO_PLUGINS", "recursos-contenido/plugins/");
 
-
-define("CONTENIDO_IMAGENES", "imagenes/usuarios/");
-define("CONTENIDO_IMAGENES_CALZADO", "imagenes/calzado/");
+//RUTAS PARA LAS IMAGENES
+define("IMG_DIR_USUARIOS","recursos-contenido/images/usuarios");

@@ -29,7 +29,18 @@
             return $resultado;
         }//end login
         
-
+        public function data_table_usuarios($id_rol_sesion = 0) {
+            $resultado = $this
+                    ->select('
+                                id_usuario, estatus_usuario, nombre_usuario, ap_paterno_usuario, ap_materno_usuario,
+                                sexo_usuario, imagen_usuario, email_usuario, roles.rol
+                            ')
+                    ->join('roles', 'roles.id_rol = usuarios.id_rol')
+                    ->where('id_usuario !=',$id_rol_sesion)
+                    ->orderBy('ap_paterno_usuario', 'ASC')
+                    ->findAll();
+        return $resultado;
+        }//end data_table_usuarios
     }//End Model usuarios
     
 

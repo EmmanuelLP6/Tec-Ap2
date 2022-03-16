@@ -41,7 +41,6 @@ $routes->get('/cerrar_acceso', 'Usuario\Cerrar_acceso::index',['as' => 'cerrar_a
 //validar acceso
 $routes->post('/validar_acceso', 'Usuario\Acceso::validar_acceso',['as' => 'validar_acceso']);
 
-//CONSTANTES DEL PANEL
 
 
 /*
@@ -49,11 +48,13 @@ $routes->post('/validar_acceso', 'Usuario\Acceso::validar_acceso',['as' => 'vali
  * R O U T E S   T O  P A G E 
  * --------------------------------------------------------------------
  */
+//CONSTANTES DEL PANEL
 //Dashboard
 $routes->get('/dashboard', 'Panel\Dashboard::index', ['as' => 'dashboard']);
 //Usuarios
 $routes->get('/usuarios', 'Panel\Usuarios::index', ['as' => 'usuarios']);
 $routes->get('/usuario_nuevo', 'Panel\Usuario_nuevo::index', ['as' => 'usuario_nuevo']);
+$routes->post('/registrar_usuario', 'Panel\Usuario_nuevo::registrar', ['as' => 'registrar_usuario']);
 /*
  * --------------------------------------------------------------------
  * Additional Routing

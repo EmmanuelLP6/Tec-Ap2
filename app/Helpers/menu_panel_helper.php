@@ -28,7 +28,7 @@
 
         //Tarea Usuarios
         $menu_opcion = array();
-        $menu_opcion['is_active'] = ($pagina_actual == TAREA_USUARIOS) ? TRUE : FALSE ;
+        $menu_opcion['is_active'] = ($pagina_actual == TAREA_USUARIOS || $pagina_actual == TAREA_USUARIO_NUEVO || $pagina_actual == TAREA_USUARIO_DETALLES) ? TRUE : FALSE ;
         $menu_opcion['href'] = route_to('usuarios');
         $menu_opcion['text'] = 'Usuarios';
         $menu_opcion['icon'] = 'fa fa-address-book';

@@ -152,7 +152,7 @@
         <script src="<?= base_url(RECURSOS_PANEL_JS.'sb-admin-2.min.js');?>"></script>
         <!-- ********************************************************** -->
         <!-- **************** BOOTSTRAP NOTIFY********************** -->
-        <script src="<?= base_url(RECURSOS_CONTENIDO_PLUGINS.'bootstrap-notify.min.js');?>"></script>
+        <script src="<?= base_url(RECURSOS_CONTENIDO_PLUGINS.'js/bootstrap-notify.min.js');?>"></script>
         <script>
             <?= mostrar_mensaje(); ?>
         </script>

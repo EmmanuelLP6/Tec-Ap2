@@ -39,7 +39,8 @@ class BaseController extends Controller
                             'menu_panel_helper', 
                             'funciones_helper', 
                             'form', 
-                            'url'
+                            'url',
+                            'html'
                         ];
 
     /**

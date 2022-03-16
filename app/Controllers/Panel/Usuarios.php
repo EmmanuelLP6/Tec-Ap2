@@ -49,8 +49,11 @@
                                             ? base_url(RECURSOS_CONTENIDO_IMAGE.'/usuarios/'.$session->imagen_usuario) 
                                             : (($session->sexo_usuario == SEXO_FEMENINO) ? base_url(RECURSOS_CONTENIDO_IMAGE.'/usuarios/female.png') : base_url(RECURSOS_CONTENIDO_IMAGE.'/usuarios/male.png'));
             $datos['nombre_pagina'] = 'Usuario';
-
+            
             //Datos propios por vista y controlador
+            $tabla_usuarios = new \App\Models\Tabla_usuarios;
+            $datos['usuarios'] = $tabla_usuarios->data_table_usuarios($session->id_usuario);
+
             return $datos;
         }//end cargar_datos
 

@@ -6,12 +6,12 @@
 
         public function index(){
             $session = session();
-            // if(isset($session->tarea_actual)){
-            //     return redirect()->to(route_to('dashboard'));
-            // }//end if existe usuario logeado
-            // else{
+            if(isset($session->tarea_actual)){
+                return redirect()->to(route_to('dashboard'));
+            }//end if existe usuario logeado
+            else{
                 return $this->crear_vista("usuario/new_acceso");
-            // }//end else existe usuario logeado
+            }//end else existe usuario logeado
         }//end index
 
         private function crear_vista($nombre_vista){
@@ -31,7 +31,6 @@
             $usuario = $tabla_usuarios->login($email, hash("sha256", $password));
 
             if($usuario != null){
-                // dd($usuario->ap_materno_usuario);
 
                 if ($usuario->estatus_usuario == -1) {
                     mensaje("Este usuario esta deshabilitado, comunicate con el administrador.", WARNING_ALERT);  

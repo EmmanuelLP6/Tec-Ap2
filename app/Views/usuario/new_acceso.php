@@ -19,7 +19,7 @@
     <!-- Custom styles for this template-->
     <link href="<?= base_url(RECURSOS_PANEL_CSS.'sb-admin-2.min.css');?>" rel="stylesheet">
     <!-- BostrapValidator css -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css"/>
+    <link rel="stylesheet" href="<?= base_url(RECURSOS_CONTENIDO_PLUGINS.'css/boostrapvalidator.min.css');?>">
     <!-- Show the validation -->
     <style>
         .has-error .help-block{
@@ -118,10 +118,10 @@
 
     <!-- Custom scripts for all pages-->
     <script src="<?= base_url(RECURSOS_PANEL_JS.'js/sb-admin-2.min.js');?>"></script>
+    
     <!-- BootstrapValidator JS -->
-    <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
-    <script type="text/javascript" src="<?= base_url(RECURSOS_CONTENIDO_PLUGINS.'bostrap-validator.min.js')?>"></script>
+    <script type="text/javascript" src="<?= base_url(RECURSOS_CONTENIDO_PLUGINS.'js/bootstrap.min.js'); ?>"></script>
+    <script type="text/javascript" src="<?= base_url(RECURSOS_CONTENIDO_PLUGINS.'js/bostrap-validator.min.js')?>"></script>
 
     <!-- ********************************************************** -->
     <!-- **************** BOOTSTRAP NOTIFY********************** -->

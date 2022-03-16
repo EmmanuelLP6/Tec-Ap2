@@ -8,54 +8,69 @@
 <!-- CONTENIDO -->
 <?= $this->section("contenido") ?>
     <!-- Content Row -->
-    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-                    For more information about DataTables, please visit the <a target="_blank"
-                        href="https://datatables.net">official DataTables documentation</a>.</p>
+    <a class="btn btn-primary" style="margin-bottom: 15px;" href="<?= route_to('usuario_nuevo');?>">
+        <i class="fa fa-plus" aria-hidden="true"></i>
+       Nuevo usuario
+    </a>
     <!-- <div class="row"> -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Todos los usuarios registrados</h6>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Position</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Start date</th>
-                                <th>Salary</th>
+                                <th>#</th>
+                                <th>Usuario</th>
+                                <th>Rol</th>
+                                <th>Estatus</th>
+                                <th>Acción</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
-                                <th>Name</th>
-                                <th>Position</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Start date</th>
-                                <th>Salary</th>
+                                <th>#</th>
+                                <th>Usuario</th>
+                                <th>Rol</th>
+                                <th>Estatus</th>
+                                <th>Acción</th>
                             </tr>
                         </tfoot>
                         <tbody>
-                            <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-                                <td>2011/04/25</td>
-                                <td>$320,800</td>
-                            </tr>
-                            <tr>
-                                <td>Garrett Winters</td>
-                                <td>Accountant</td>
-                                <td>Tokyo</td>
-                                <td>63</td>
-                                <td>2011/07/25</td>
-                                <td>$170,750</td>
-                            </tr>
+                            <?php
+                                $contador = 0;
+                                $html= '';
+                                foreach ($usuarios as $usuario) {
+                                    $html.= '
+                                        <tr>
+                                            <td>'.++$contador.'</td>
+                                            <td>'.$usuario->nombre_usuario.' '.$usuario->ap_paterno_usuario.' '.$usuario->ap_materno_usuario.'</td>
+                                            <td>'.$usuario->rol.'</td>';
+                                            if ($usuario->estatus_usuario != ESTATUS_HABILITADO)
+                                                $html.='<td><span class="badge badge-secondary">Deshabilitado</span></h6></td>';
+                                            else
+                                                $html.='<td><span class="badge badge-success">Habilitado</span></h6></td>';
+                                    $html.=' <td>
+                                                <a href="#" class="btn btn-warning btn-icon-split btn-sm">
+                                                    <span class="icon text-white-50">
+                                                        <i class="fas fa-info-circle"></i>
+                                                    </span>
+                                                    <span class="text">Editar</span>
+                                                </a>
+                                                <a href="#" class="btn btn-danger btn-icon-split btn-sm">
+                                                    <span class="icon text-white-50">
+                                                        <i class="fa fa-trash"></i>
+                                                    </span>
+                                                    <span class="text">Eliminar</span>
+                                                </a>
+                                            </td>
+                                        </tr>       
+                                    ';
+                                }//end foreach
+                                echo $html;
+                            ?>          
                         </tbody>
                     </table>
                 </div>
@@ -73,7 +88,25 @@
     <script>
         // Call the dataTables jQuery plugin
         $(document).ready(function() {
-            $('#dataTable').DataTable();
+            $('#dataTable').DataTable({
+               'processing': true,
+                "responsive": true,
+                "scrollX": true,
+                "language": {
+                    "lengthMenu": "Mostrar _MENU_ datos",
+                    "info": "Página _PAGE_ de _PAGES_",
+                    "infoEmpty": "Datos no disponibles por el momento",
+                    "processing":     "Procesando ...",
+                    "search":         "Buscar:",
+                    "zeroRecords":    "Datos no disponibles por el momento",
+                    "paginate": {
+                    "first":      "Primera",
+                    "last":       "Última",
+                    "next":       "Siguiente",
+                    "previous":   "Anterior"
+                    },
+                }//End languagee 
+            });
         });
     </script>
 <?= $this->endSection(); ?>
