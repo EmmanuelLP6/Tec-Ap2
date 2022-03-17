@@ -13,7 +13,7 @@
             helper('permisos_roles_helper');
             //instancia de la sesion
             $session = session();
-
+            //Verifica si el usuario logeado cuenta con los permiso de esta area
             if (acceso_usuario(TAREA_USUARIOS)) {
                 $session->tarea_actual = TAREA_USUARIOS;
             }//end if 
@@ -23,6 +23,7 @@
         }//end constructor
 
         public function index(){
+            //verifica si tiene permisos para continuar o no
             if($this->permitido){
                 return $this->crear_vista("panel/usuarios", $this->cargar_datos());
             }//end if rol permitido
@@ -62,4 +63,52 @@
             return view($nombre_vista, $contenido);
         }//end crear_vista
 
+        public function eliminar($id_usuario = 0) {
+            //Cargamos el modelo correspondiente
+            $tabla_usuarios = new \App\Models\Tabla_usuarios;
+            //Query
+            $usuario = $tabla_usuarios->obtener_usuario($id_usuario); 
+            if (!is_null($usuario)) {
+                //Borra la imagen del usuario en caso de que tenga
+                if(file_exists(IMG_DIR_USUARIOS.'/'.$usuario->imagen_usuario)){
+                    unlink(IMG_DIR_USUARIOS.'/'.$usuario->imagen_usuario);
+                }//end if
+
+                //Se va a eliminar el usuario
+                if($tabla_usuarios->delete($id_usuario)) {
+                    mensaje("El usuario ha sido eliminado exitosamente", SUCCESS_ALERT);
+                }//end if eliminar
+                else {
+                    mensaje("Hubo un error al eliminar a este usuario, intenta nuevamente", DANGER_ALERT);
+                }//end else
+
+            }//end if count
+            else {
+                mensaje("El usuario que deseas eliminar no existe", WARNING_ALERT);
+            }//end else count
+            //redirecciona al modulo de usuarios
+            return redirect()->to(route_to('usuarios'));
+        }//end eliminar
+
+        public function estatus($id_usuario = 0, $estatus = NULL) {
+             //Cargamos el modelo correspondiente
+            $tabla_usuarios = new \App\Models\Tabla_usuarios;
+            //Query
+            $usuario = $tabla_usuarios->obtener_usuario($id_usuario); 
+            if (!is_null($usuario)) {
+                //Se va a actualizar el estatus del usuario
+                if($tabla_usuarios->update($id_usuario, ['estatus_usuario' => $estatus]) > 0){
+                    mensaje("El estatus de este usuario ha sido actualizado exitosamente", SUCCESS_ALERT);
+                }//end if actualizar 
+                else {
+                    mensaje("Hubo un error al cambiar el estatus de este usuario, intenta nuevamente", DANGER_ALERT);
+                }//end else
+            }//end if is_null
+            else {
+                mensaje("El usuario que deseas cambiar su estatus no existe", WARNING_ALERT);
+            }//end else is_null
+            //redirecciona al modulo de usuarios
+            return redirect()->to(route_to('usuarios'));
+        }//end estatus
+        
     }//End Class Usuarios

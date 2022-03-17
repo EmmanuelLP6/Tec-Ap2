@@ -48,26 +48,41 @@
                                             <td>'.++$contador.'</td>
                                             <td>'.$usuario->nombre_usuario.' '.$usuario->ap_paterno_usuario.' '.$usuario->ap_materno_usuario.'</td>
                                             <td>'.$usuario->rol.'</td>';
-                                            if ($usuario->estatus_usuario != ESTATUS_HABILITADO)
-                                                $html.='<td><span class="badge badge-secondary">Deshabilitado</span></h6></td>';
-                                            else
-                                                $html.='<td><span class="badge badge-success">Habilitado</span></h6></td>';
+                                            if ($usuario->estatus_usuario != ESTATUS_HABILITADO){
+                                                $html.='<td>
+                                                        <a href="'.route_to("estatus_usuario", $usuario->id_usuario, ESTATUS_HABILITADO).'" class="btn btn-secondary btn-icon-split btn-sm">
+                                                            <span class="icon text-white-50">
+                                                                <i class="fa fa-eye-slash"></i>
+                                                            </span>
+                                                            <span class="text">Deshabilitado</span>
+                                                        </a>
+                                                    </td>';
+                                            }
+                                            else{
+                                                $html.='<td>
+                                                            <a href="'.route_to('estatus_usuario', $usuario->id_usuario, ESTATUS_DESHABILITADO).'" class="btn btn-success btn-icon-split btn-sm">
+                                                                <span class="icon text-white-50">
+                                                                    <i class="fa fa-eye"></i>
+                                                                </span>
+                                                                <span class="text">Habilitado</span>
+                                                            </a>
+                                                        </td>';
+                                            }
                                     $html.=' <td>
-                                                <a href="#" class="btn btn-warning btn-icon-split btn-sm">
+                                                <a href="'.route_to("detalles_usuario",$usuario->id_usuario).'" class="btn btn-warning btn-icon-split btn-sm">
                                                     <span class="icon text-white-50">
                                                         <i class="fas fa-info-circle"></i>
                                                     </span>
                                                     <span class="text">Editar</span>
                                                 </a>
-                                                <a href="#" class="btn btn-danger btn-icon-split btn-sm">
+                                                <a href="'.route_to("eliminar_usuario",$usuario->id_usuario).'" class="btn btn-danger btn-icon-split btn-sm">
                                                     <span class="icon text-white-50">
                                                         <i class="fa fa-trash"></i>
                                                     </span>
                                                     <span class="text">Eliminar</span>
                                                 </a>
                                             </td>
-                                        </tr>       
-                                    ';
+                                        </tr>';
                                 }//end foreach
                                 echo $html;
                             ?>          

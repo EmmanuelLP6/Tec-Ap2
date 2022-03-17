@@ -53,8 +53,12 @@ $routes->post('/validar_acceso', 'Usuario\Acceso::validar_acceso',['as' => 'vali
 $routes->get('/dashboard', 'Panel\Dashboard::index', ['as' => 'dashboard']);
 //Usuarios
 $routes->get('/usuarios', 'Panel\Usuarios::index', ['as' => 'usuarios']);
+$routes->get('/eliminar_usuario/(:num)', 'Panel\Usuarios::eliminar/$1', ['as' => 'eliminar_usuario']);
+$routes->get('/estatus_usuario/(:num)/(:num)', 'Panel\Usuarios::estatus/$1/$2', ['as' => 'estatus_usuario']);
 $routes->get('/usuario_nuevo', 'Panel\Usuario_nuevo::index', ['as' => 'usuario_nuevo']);
 $routes->post('/registrar_usuario', 'Panel\Usuario_nuevo::registrar', ['as' => 'registrar_usuario']);
+$routes->get('/detalles_usuario/(:num)', 'Panel\Usuario_detalles::index/$1', ['as' => 'detalles_usuario']);
+$routes->post('/editar_usuario', 'Panel\Usuario_detalles::editar', ['as' => 'editar_usuario']);
 /*
  * --------------------------------------------------------------------
  * Additional Routing

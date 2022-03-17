@@ -13,7 +13,7 @@
             helper('permisos_roles_helper');
             //instancia de la sesion
             $session = session();
-
+            //Verifica si el usuario logeado cuenta con los permiso de esta area
             if (acceso_usuario(TAREA_DASHBOARD)) {
                 $session->tarea_actual = TAREA_DASHBOARD;
             }//end if 
@@ -23,6 +23,7 @@
         }//end constructor
 
         public function index(){
+            //verifica si tiene permisos para continuar o no
             if($this->permitido){
                 return $this->crear_vista("panel/dashboard", $this->cargar_datos());
             }//end if rol permitido
@@ -48,9 +49,9 @@
             $datos['imagen_usuario'] = ($session->imagen_usuario != NULL) 
                                             ? base_url(RECURSOS_CONTENIDO_IMAGE.'/usuarios/'.$session->imagen_usuario) 
                                             : (($session->sexo_usuario == SEXO_FEMENINO) ? base_url(RECURSOS_CONTENIDO_IMAGE.'/usuarios/female.png') : base_url(RECURSOS_CONTENIDO_IMAGE.'/usuarios/male.png'));
-            $datos['nombre_pagina'] = 'Dashboard';
 
             //Datos propios por vista y controlador
+            $datos['nombre_pagina'] = 'Dashboard';
             return $datos;
         }//end cargar_datos
 

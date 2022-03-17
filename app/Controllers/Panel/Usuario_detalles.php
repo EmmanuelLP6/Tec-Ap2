@@ -3,7 +3,7 @@
     use App\Controllers\BaseController;
     use App\Libraries\Permisos;
 
-    class Usuario_nuevo extends BaseController{
+    class Usuario_detalles extends BaseController{
 
         private $session;
         private $permitido = TRUE;
@@ -14,18 +14,25 @@
             //instancia de la sesion
             $session = session();
             //Verifica si el usuario logeado cuenta con los permiso de esta area
-            if (acceso_usuario(TAREA_DASHBOARD)) {
-                $session->tarea_actual = TAREA_DASHBOARD;
+            if (acceso_usuario(TAREA_USUARIO_DETALLES)) {
+                $session->tarea_actual = TAREA_USUARIO_DETALLES;
             }//end if 
             else{
                 $this->permitido = FALSE;
             }//end else
         }//end constructor
 
-        public function index(){
+        public function index($id_usuario = NULL){
             //verifica si tiene permisos para continuar o no
             if($this->permitido){
-                return $this->crear_vista("panel/usuario_nuevo", $this->cargar_datos());
+                $tabla_usuarios = new \App\Models\Tabla_usuarios;
+                if($tabla_usuarios->find($id_usuario) == null){
+                    mensaje('No se encuentra al usuario propocionado.', WARNING_ALERT);
+                    return redirect()->to(route_to('usuarios'));
+                }//end if no existe el usuario
+                else{
+                    return $this->crear_vista("panel/usuario_detalles", $this->cargar_datos($id_usuario));
+                }//end else no existe el usuario
             }//end if rol permitido
             else{
                 mensaje("No tienes permiso para acceder a este módulo, contacte al administrador", WARNING_ALERT);
@@ -33,7 +40,7 @@
             }//end else rol no permitido
         }//end index
 
-        private function cargar_datos(){
+        private function cargar_datos($id_usuario = NULL){
             //======================================================================
             //==========================DATOS FUNDAMENTALES=========================
             //======================================================================
@@ -49,14 +56,19 @@
             $datos['imagen_usuario'] = ($session->imagen_usuario != NULL) 
                                             ? base_url(RECURSOS_CONTENIDO_IMAGE.'/usuarios/'.$session->imagen_usuario) 
                                             : (($session->sexo_usuario == SEXO_FEMENINO) ? base_url(RECURSOS_CONTENIDO_IMAGE.'/usuarios/female.png') : base_url(RECURSOS_CONTENIDO_IMAGE.'/usuarios/male.png'));
+            //Cargamos el modelo correspondiente
+            $tabla_usuarios = new \App\Models\Tabla_usuarios;
+            $usuario = $tabla_usuarios->obtener_usuario($id_usuario);
 
             //Datos propios por vista y controlador
-            $datos['nombre_pagina'] = 'Usuario nuevo';
+            $datos['nombre_pagina'] = 'Detalles del usuario: '.$usuario->nombre_usuario;
+            $datos['usuario'] = $usuario;
+            // dd($datos['usuario']);
             return $datos;
         }//end cargar_datos
 
         private function crear_vista($nombre_vista, $contenido = array()){
-            $contenido['menu'] = crear_menu_panel(TAREA_USUARIO_NUEVO, '');
+            $contenido['menu'] = crear_menu_panel(TAREA_USUARIO_DETALLES, '');
             return view($nombre_vista, $contenido);
         }//end crear_vista
 
@@ -80,11 +92,24 @@
             }//end else
         }//end subir_archivo
 
-        // -----------------------------------------------------
-        // -----------------------------------------------------
-
-        public function registrar() {
+        private function eliminar_archivo ($file = NULL){
             
+            if (!empty($file)) {
+                if(file_exists(IMG_DIR_USUARIOS.'/'.$file)){
+                    unlink(IMG_DIR_USUARIOS.'/'.$file);
+                    return TRUE;
+                }//end if
+            }//end if is_null
+            else{
+                return FALSE;
+            }//end else is_null
+        }//end eliminar_archivo
+
+        // -----------------------------------------------------
+        // -----------------------------------------------------
+        public function editar() {
+            $id_usuario = $this->request->getPost('id_usuario');
+
             //Cargamos el modelo correspondiente
             $tabla_usuarios = new \App\Models\Tabla_usuarios;
 
@@ -97,23 +122,25 @@
             $usuario['sexo_usuario'] = $this->request->getPost('sexo');
             $usuario['id_rol'] = $this->request->getPost('rol');
             $usuario['email_usuario'] = $this->request->getPost('email');
-            $usuario['password_usuario'] =  hash('sha256', $this->request->getPost('password'));
-
+            
+            if (!empty($this->request->getPost('password'))) {
+                $usuario['password_usuario'] =  hash('sha256', $this->request->getPost('password'));
+            }//end if is_null
+            
             //verificar si tiene algo el input de file
             if(!empty($this->request->getFile('foto_perfil')) && $this->request->getFile('foto_perfil')->getSize() > 0){
-				$usuario['imagen_usuario'] = $this->subir_archivo($this->request->getFile('foto_perfil'));
+                $this->eliminar_archivo($this->request->getPost('foto_anterior'));
+                $usuario['imagen_usuario'] = $this->subir_archivo($this->request->getFile('foto_perfil'));
 			}//end if existe imagen
 
-            if($tabla_usuarios->insert($usuario) > 0){
-                mensaje("El usuario ha sido registrado exitosamente", SUCCESS_ALERT);
+            if($tabla_usuarios->update($id_usuario, $usuario) > 0){
+                mensaje("El usuario ha sido actualizado exitosamente", SUCCESS_ALERT);
                 return redirect()->to(route_to('usuarios'));
-            }//end if se inserta el usuario
+            }//end if se actualiza el usuario
             else{
-                $tabla_personas->delete($id_persona_insertada);
-                mensaje("Hubo un error al registrar al usuario. Intente nuevamente, por favor", DANGER_ALERT);
-                return $this->index();
+                mensaje("Hubo un error al actualizar al usuario. Intente nuevamente, por favor", DANGER_ALERT);
+                return redirect()->to(route_to('detalles_usuario',$id_usuario));
             }//end else se inserta el usuario
+        }//end editar
 
-        }//end registrar
-
-    }//End Class Usuario_nuevo
+    }//End Class Usuarios_detalles
