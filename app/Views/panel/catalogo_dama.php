@@ -56,13 +56,13 @@
                                             <td>'.$calzado_dama->talla.'</td>
                                             <td>$'.$calzado_dama->precio.'</td>
                                             <td>
-                                                <a href="'.route_to("detalles_usuario",$calzado_dama->id_calzado).'" class="btn btn-warning btn-icon-split btn-sm">
+                                                <a href="'.route_to("detalles_calzado",$calzado_dama->id_calzado).'" class="btn btn-warning btn-icon-split btn-sm">
                                                     <span class="icon text-white-50">
                                                         <i class="fas fa-info-circle"></i>
                                                     </span>
                                                     <span class="text">Editar</span>
                                                 </a><br>
-                                                <a href="'.route_to("eliminar_usuario",$calzado_dama->id_calzado).'" class="btn btn-danger btn-icon-split btn-sm">
+                                                <a href="'.route_to("eliminar_calzado_dama",$calzado_dama->id_calzado).'" class="btn btn-danger btn-icon-split btn-sm">
                                                     <span class="icon text-white-50">
                                                         <i class="fa fa-trash"></i>
                                                     </span>

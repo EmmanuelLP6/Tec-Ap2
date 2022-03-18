@@ -11,7 +11,7 @@
 
         protected $allowedFields = [
                                     'estatus_calzado', 'id_calzado', 'marca', 'modelo', 'color', 'talla',
-                                    'genero', 'precio', 'imagen_calzado', 'destacado'
+                                    'genero', 'precio', 'imagen_calzado', 'destacado', 'descripcion'
                                     ];
         
         //Funciones que nos ayudaran a realizar peticiones (consultas) para obtener la información que deseemos

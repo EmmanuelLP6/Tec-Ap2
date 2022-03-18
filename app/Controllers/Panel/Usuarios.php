@@ -62,18 +62,27 @@
             $contenido['menu'] = crear_menu_panel(TAREA_USUARIOS, '');
             return view($nombre_vista, $contenido);
         }//end crear_vista
+        
+        private function eliminar_archivo ($file = NULL){    
+            if (!empty($file)) {
+                if(file_exists(IMG_DIR_USUARIOS.'/'.$file)){
+                    unlink(IMG_DIR_USUARIOS.'/'.$file);
+                    return TRUE;
+                }//end if
+            }//end if is_null
+            else{
+                return FALSE;
+            }//end else is_null
+        }//end eliminar_archivo
 
         public function eliminar($id_usuario = 0) {
             //Cargamos el modelo correspondiente
             $tabla_usuarios = new \App\Models\Tabla_usuarios;
             //Query
             $usuario = $tabla_usuarios->obtener_usuario($id_usuario); 
-            if (!is_null($usuario)) {
+            if (!empty($usuario)) {
                 //Borra la imagen del usuario en caso de que tenga
-                if(file_exists(IMG_DIR_USUARIOS.'/'.$usuario->imagen_usuario)){
-                    unlink(IMG_DIR_USUARIOS.'/'.$usuario->imagen_usuario);
-                }//end if
-
+                $this->eliminar_archivo($usuario->imagen_usuario);
                 //Se va a eliminar el usuario
                 if($tabla_usuarios->delete($id_usuario)) {
                     mensaje("El usuario ha sido eliminado exitosamente", SUCCESS_ALERT);

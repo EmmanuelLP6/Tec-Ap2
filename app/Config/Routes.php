@@ -60,11 +60,18 @@ $routes->post('/registrar_usuario', 'Panel\Usuario_nuevo::registrar', ['as' => '
 $routes->get('/detalles_usuario/(:num)', 'Panel\Usuario_detalles::index/$1', ['as' => 'detalles_usuario']);
 $routes->post('/editar_usuario', 'Panel\Usuario_detalles::editar', ['as' => 'editar_usuario']);
 
-//Catalogo
+//Catalogo Dama
 $routes->get('/catalogo_dama_panel', 'Panel\Catalogo_dama::index', ['as' => 'catalogo_dama_panel']);
-
+$routes->get('/eliminar_calzado_dama/(:num)', 'Panel\Catalogo_dama::eliminar/$1', ['as' => 'eliminar_calzado_dama']);
+//Catalogo Caballero
+$routes->get('/catalogo_caballero_panel', 'Panel\Catalogo_caballero::index', ['as' => 'catalogo_caballero_panel']);
+$routes->get('/eliminar_calzado_caballero/(:num)', 'Panel\Catalogo_caballero::eliminar/$1', ['as' => 'eliminar_calzado_caballero']);
+//Nuevo calzado
 $routes->get('/nuevo_calzado', 'Panel\Nuevo_calzado::index', ['as' => 'nuevo_calzado']);
 $routes->post('/registrar_calzado', 'Panel\Nuevo_calzado::registrar', ['as' => 'registrar_calzado']);
+//Editar calzado
+$routes->get('/detalles_calzado/(:num)', 'Panel\Calzado_detalles::index/$1', ['as' => 'detalles_calzado']);
+$routes->post('/editar_calzado', 'Panel\Calzado_detalles::editar', ['as' => 'editar_calzado']);
 /*
  * --------------------------------------------------------------------
  * Additional Routing

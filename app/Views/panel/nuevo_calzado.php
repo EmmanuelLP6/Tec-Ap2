@@ -22,6 +22,12 @@
         .has-success select{
             border-color: green !important;
         }
+        .has-error textarea{
+            border-color: red !important;
+        }
+        .has-success textarea{
+            border-color: green !important;
+        }
     </style>
 <?= $this->endSection(); ?>
 <!-- End  -->
@@ -148,6 +154,35 @@
                         </div>
 
                         <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="text-dark" for="">Destacado (<font color="red">*</font>):</label>
+                                    <?php
+                                        $select = array('class' => 'form-control form-select',
+                                                            'id' => 'destacado-calzado'
+                                                            );
+                                        echo form_dropdown('destacado_calzado', [''=>'Selecciona una opción para el calzado']+CALZADO_DESTACADO, set_value('destacado_calzado'), $select);
+                                    ?>   
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="text-dark" for="">Descripción (<font color="red">*</font>):</label>
+                                    <?php
+                                        $input = array(
+                                            'id' => 'descripcion-area',
+                                            'name' => 'descripcion_calzado',
+                                            'placeholder' => 'Escribe aquí la descripción de tu calzado...',
+                                            'class' => 'form-control',
+                                            'rows' => '2',
+                                        );
+                                        echo form_textarea($input);
+                                    ?>      
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <label class="text-dark" for="">Imagen del calzado (<font color="red">*</font>):</label>
@@ -194,7 +229,7 @@
     <script type="text/javascript" src="<?= base_url(RECURSOS_CONTENIDO_PLUGINS.'js/bostrap-validator.min.js')?>"></script>
     <!--  -->
     <script type="text/javascript">
-        document.getElementById("imagen").onchange = function(e) {
+        document.getElementById("imagen-calzado").onchange = function(e) {
             // Se crea un objeto FileReader
             let reader = new FileReader();
             // Se leé el archivo seleccionado y se pasa como argumento al objeto FileReader
@@ -263,6 +298,20 @@
                         validators: {
                             notEmpty: {
                                 message: 'Precio del calzado es requerida'
+                            },
+                        }//validacion
+                    },//end 
+                    destacado_calzado: {
+                        validators: {
+                            notEmpty: {
+                                message: 'Precio del calzado es requerida'
+                            },
+                        }//validacion
+                    },//end 
+                    descripcion_calzado: {
+                        validators: {
+                            notEmpty: {
+                                message: 'Descripción del calzado es requerida'
                             },
                         }//validacion
                     },//end 

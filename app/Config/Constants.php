@@ -204,6 +204,11 @@ define("TIPO_CALZADO", array(
                         1 => 'Dama',
                   ));
 
+define("CALZADO_DESTACADO", array(
+                    0 => 'No',
+                    1 => 'Si'
+                ));
+
 define("TIPO_CALZADO_DAMA",1);
 define("TIPO_CALZADO_CABALLERO",0);
 

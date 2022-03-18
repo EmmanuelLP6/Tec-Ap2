@@ -60,4 +60,65 @@
             return view($nombre_vista, $contenido);
         }//end crear_vista
 
+
+        private function subir_archivo($file = NULL){
+            $file_size = $file->getSize();
+            $file_extension = $file->getClientExtension();
+            $file_info = \Config\Services::image()
+                                        ->withFile($file)
+                                        ->getFile()
+                                        ->getProperties(true);
+            $file_name = (hash("sha256", fecha_actual())).'.'.$file_extension;
+            if($file_size <= 2097152 &&
+                ($file_extension == 'jpeg' || $file_extension == 'jpg' || $file_extension == 'png') &&
+                $file_info['width'] <= 512 && $file_info['height'] <= 512){
+                $file->move(IMG_DIR_CALZADOS, $file_name);
+                return $file_name;
+            }//end if la imagen cumple con los requisitos
+            else{
+                mensaje('Tu imagen no cumple con los requisitos solicitados.', DANGER_ALERT);
+                return NULL;
+            }//end else
+        }//end subir_archivo
+
+        // -----------------------------------------------------
+        // -----------------------------------------------------
+        public function registrar() {
+            
+            //Cargamos el modelo correspondiente
+            $tabla_calzados = new \App\Models\Tabla_calzados;
+
+            //Declaración del arreglo 
+            $calzado = array();
+            $calzado['estatus_calzado'] = ESTATUS_HABILITADO;
+            $calzado['marca'] = $this->request->getPost('marca_calzado');
+            $calzado['modelo'] = $this->request->getPost('modelo_calzado');
+            $calzado['color'] = $this->request->getPost('color_calzado');
+            $calzado['talla'] = $this->request->getPost('talla_calzado');
+            $calzado['genero'] = $this->request->getPost('categoria_calzado');
+            $calzado['precio'] = $this->request->getPost('precio_calzado');
+            $calzado['descripcion'] = $this->request->getPost('descripcion_calzado');
+            $calzado['destacado'] = $this->request->getPost('destacado_calzado');
+            // $usuario['imagen_calzado'] = $this->request->getPost('');
+            // dd($calzado);
+
+            //verificar si tiene algo el input de file
+            if(!empty($this->request->getFile('image_calzado')) && $this->request->getFile('image_calzado')->getSize() > 0){
+                $calzado['imagen_calzado'] = $this->subir_archivo($this->request->getFile('image_calzado'));
+                if($tabla_calzados->insert($calzado) > 0){
+                    mensaje("El calzado ha sido registrado exitosamente", SUCCESS_ALERT);
+                    return redirect()->to(route_to('catalogo_dama_panel'));
+                }//end if se inserta el usuario
+                else{
+                    mensaje("Hubo un error al registrar el calzao. Intente nuevamente, por favor", DANGER_ALERT);
+                    return $this->index();
+                }//end else se inserta el usuario
+			}//end if existe imagen
+            else{
+                mensaje("Hubo error al subir la imagen. Intente nuevamente, por favor", DANGER_ALERT);
+                return $this->index();
+            }//end else 
+
+
+        }//end registrar
     }//End Class Dashboard

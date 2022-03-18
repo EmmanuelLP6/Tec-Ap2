@@ -331,11 +331,11 @@
                     },//end password
                     foto_perfil: {
                         validators: {
-                            file: {
-                                extension: 'jpg,png',
-                                type: 'image/jpg,image/png',
+                            file: { 
+                                extension: 'jpeg,jpg,png',
+                                type: 'image/jpeg,image/png',
                                 // maxSize: 2048 * 1024,
-                                message: 'The selected file is not valid'
+                                message: 'El archivo seleccionado no es valido'
                             }
                         }
                     }

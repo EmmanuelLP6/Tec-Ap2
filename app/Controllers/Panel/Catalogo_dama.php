@@ -65,4 +65,42 @@
             return view($nombre_vista, $contenido);
         }//end crear_vista
 
+        private function eliminar_archivo ($file = NULL){
+            if (!empty($file)) {
+                if(file_exists(IMG_DIR_CALZADOS.'/'.$file)){
+                    unlink(IMG_DIR_CALZADOS.'/'.$file);
+                    return TRUE;
+                }//end if
+            }//end if is_null
+            else{
+                return FALSE;
+            }//end else is_null
+        }//end eliminar_archivo
+
+        // -----------------------------------------------------
+        // -----------------------------------------------------
+        public function eliminar($id_calzado = 0) {
+            //Cargamos el modelo correspondiente
+            $tabla_calzados = new \App\Models\Tabla_calzados;
+            //Query
+            $calzado = $tabla_calzados->obtener_calzado($id_calzado); 
+            if (!empty($calzado)) {
+                //Borra la imagen del usuario en caso de que tenga
+                $this->eliminar_archivo($calzado->imagen_calzado);
+                //Se va a eliminar el usuario
+                if($tabla_calzados->delete($id_calzado)) {
+                    mensaje("El calzado ha sido eliminado exitosamente", SUCCESS_ALERT);
+                }//end if eliminar
+                else {
+                    mensaje("Hubo un error al eliminar el calzado, intenta nuevamente", DANGER_ALERT);
+                }//end else
+
+            }//end if count
+            else {
+                mensaje("El calzado que deseas eliminar no existe", WARNING_ALERT);
+            }//end else count
+            //redirecciona al modulo de usuarios
+            return redirect()->to(route_to('catalogo_dama_panel'));
+        }//end eliminar
+
     }//End Class Catalogo_dama
