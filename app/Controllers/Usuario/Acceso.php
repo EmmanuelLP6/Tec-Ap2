@@ -29,7 +29,6 @@
 
             //query  (petición)
             $usuario = $tabla_usuarios->login($email, hash("sha256", $password));
-
             if($usuario != null){
 
                 if ($usuario->estatus_usuario == -1) {

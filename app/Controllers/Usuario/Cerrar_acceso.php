@@ -6,7 +6,7 @@
 
         public function index(){
             session()->destroy();
-            return redirect()->to(route_to('inicio'));
+            return redirect()->to(route_to('acceso'));
         }//end index
 
     }//End Class Cerrar_acceso

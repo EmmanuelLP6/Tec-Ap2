@@ -175,6 +175,11 @@ define("PERMISOS_ADMIN", array(
     TAREA_USUARIOS,
     TAREA_USUARIO_NUEVO,
     TAREA_USUARIO_DETALLES,
+    TAREA_CATALOGO,
+    TAREA_CATALOGO_DAMA,
+    TAREA_CATALOGO_CABALLERO,
+    TAREA_OFERTA,
+    TAREA_PERFIL
 ));
 
 define("PERMISOS_OPERADOR", array(
@@ -182,7 +187,25 @@ define("PERMISOS_OPERADOR", array(
     TAREA_CATALOGO,
     TAREA_CATALOGO_DAMA,
     TAREA_CATALOGO_CABALLERO,
+    TAREA_OFERTA,
+    TAREA_PERFIL
 ));
+
+define("MARCA_CALZADO", array(
+                        1 => 'Adidas',
+                        2 => 'Puma',
+                        3 => 'Nike',
+                        4 => 'Reebok',
+                        5 => 'Vans',
+                  ));
+
+define("TIPO_CALZADO", array(
+                        0 => 'Caballero',
+                        1 => 'Dama',
+                  ));
+
+define("TIPO_CALZADO_DAMA",1);
+define("TIPO_CALZADO_CABALLERO",0);
 
 //RUTAS BASE 
 define("RECURSOS_CONTENIDO_IMAGE", "recursos-contenido/images/");
@@ -190,3 +213,4 @@ define("RECURSOS_CONTENIDO_PLUGINS", "recursos-contenido/plugins/");
 
 //RUTAS PARA LAS IMAGENES
 define("IMG_DIR_USUARIOS","recursos-contenido/images/usuarios");
+define("IMG_DIR_CALZADOS","recursos-contenido/images/calzados/");

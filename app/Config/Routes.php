@@ -59,6 +59,12 @@ $routes->get('/usuario_nuevo', 'Panel\Usuario_nuevo::index', ['as' => 'usuario_n
 $routes->post('/registrar_usuario', 'Panel\Usuario_nuevo::registrar', ['as' => 'registrar_usuario']);
 $routes->get('/detalles_usuario/(:num)', 'Panel\Usuario_detalles::index/$1', ['as' => 'detalles_usuario']);
 $routes->post('/editar_usuario', 'Panel\Usuario_detalles::editar', ['as' => 'editar_usuario']);
+
+//Catalogo
+$routes->get('/catalogo_dama_panel', 'Panel\Catalogo_dama::index', ['as' => 'catalogo_dama_panel']);
+
+$routes->get('/nuevo_calzado', 'Panel\Nuevo_calzado::index', ['as' => 'nuevo_calzado']);
+$routes->post('/registrar_calzado', 'Panel\Nuevo_calzado::registrar', ['as' => 'registrar_calzado']);
 /*
  * --------------------------------------------------------------------
  * Additional Routing

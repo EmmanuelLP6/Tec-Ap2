@@ -44,12 +44,12 @@
         $menu_opcion['submenu'] = array();
             $menu_sub_opcion = array();
             $menu_sub_opcion['is_active'] = ($sub_pagina_actual == TAREA_CATALOGO_DAMA) ? TRUE : FALSE ;
-            $menu_sub_opcion['href'] = route_to('catalogo_dama');
+            $menu_sub_opcion['href'] = route_to('catalogo_dama_panel');
             $menu_sub_opcion['text'] = 'Dama';
             $menu_opcion['submenu']['dama'] = $menu_sub_opcion;
             $menu_sub_opcion = array();
             $menu_sub_opcion['is_active'] = ($sub_pagina_actual == TAREA_CATALOGO_CABALLERO) ? TRUE : FALSE ;
-            $menu_sub_opcion['href'] = route_to('catalogo_caballero');
+            $menu_sub_opcion['href'] = route_to('catalogo_caballero_panel');
             $menu_sub_opcion['text'] = 'Caballero';
             $menu_opcion['submenu']['caballero'] = $menu_sub_opcion;
         $menu['catalogo'] = $menu_opcion;
