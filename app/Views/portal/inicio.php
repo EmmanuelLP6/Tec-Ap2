@@ -30,7 +30,7 @@
                                                 <h1>'.$calzado->modelo.'</h1>
                                                 <p>'.$calzado->descripcion.'</p>
                                                 <div class="add-bag d-flex align-items-center">
-                                                <a class="add-btn" href=""><span class="lnr lnr-cross"></span></a>
+                                                <a class="add-btn" href="'.route_to("informacion_calzado",$calzado->id_calzado).'"><span class="lnr lnr-cross"></span></a>
                                                     <span class=" add-text text-uppercase">Detalles</span>
                                                 </div>
                                             </div>
@@ -74,7 +74,7 @@
                                             <h6>Marca: '.MARCA_CALZADO[$cal_act->marca].'</h6>
                                         </div>
                                         <div class="add-bag d-flex align-items-center justify-content-center">
-                                            <a class="add-btn" href=""><span class="ti-bag"></span></a>
+                                            <a class="add-btn" href="'.route_to("informacion_calzado",$cal_act->id_calzado).'"><span class="ti-bag"></span></a>
                                             <span class="add-text text-uppercase">Detalles</span>
                                         </div>
                                     </div>

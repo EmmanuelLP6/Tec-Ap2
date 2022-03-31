@@ -43,7 +43,10 @@ $routes->post('/validar_acceso', 'Usuario\Acceso::validar_acceso',['as' => 'vali
 
 // Categorias
 $routes->get('/categoria_dama', 'Portal\Dama::index',['as' => 'categoria_dama']);
+$routes->get('/categoria_caballero', 'Portal\Caballero::index',['as' => 'categoria_caballero']);
 
+//Detalles del producto
+$routes->get('/informacion_calzado/(:num)', 'Portal\Informacion_calzado::index/$1',['as' => 'informacion_calzado']);
 
 
 /*

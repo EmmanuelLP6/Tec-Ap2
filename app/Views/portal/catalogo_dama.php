@@ -16,7 +16,7 @@
 					<h1>Cátalogo para damas</h1>
 					<nav class="d-flex align-items-center">
 						<a href="<?= route_to('inicio');?>">Inicio<span class="lnr lnr-arrow-right"></span></a>
-						<a href="#">Fashon Category</a>
+						<a href="#">Damas</a>
 					</nav>
 				</div>
 			</div>
@@ -44,11 +44,11 @@
                                                 <h6>'.$calzado->modelo.'</h6>
                                                 <div class="price">';
                                                     // <h6>$150.00</h6>';
-                                                    $html.= ($calzado->descuento != NULL) ? '<h6 class="l-through">$'.$descuento.' mxn</h6>' : '<h6>$'.number_format($calzado->precio,2,'.',',').' mxn</h6>' ;
+                                                    $html.= ($calzado->descuento != NULL) ? '<h6 class="">$'.$descuento.' mxn</h6>' : '<h6>$'.number_format($calzado->precio,2,'.',',').' mxn</h6>' ;
                                                     $html.= ($calzado->descuento != NULL) ? '<h6 class="l-through">$'.number_format($calzado->precio,2,'.',',').' mxn</h6>' : '' ;
                                                 $html.='</div>
                                                 <div class="prd-bottom">
-                                                    <a href="" class="social-info">
+                                                    <a href="'.route_to("informacion_calzado",$calzado->id_calzado).'"" class="social-info">
                                                         <span class="ti-bag"></span>
                                                         <p class="hover-text">Detalles</p>
                                                     </a>

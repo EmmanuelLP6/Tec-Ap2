@@ -18,7 +18,7 @@
             $datos['nombre_pagina'] = 'Categoría Dama';
 
             $tabla_calzados = new \App\Models\Tabla_calzados;
-            $datos['calzados'] = $tabla_calzados->oferta_calzados(SEXO_FEMENINO,12);
+            $datos['calzados'] = $tabla_calzados->oferta_calzados(TIPO_CALZADO_DAMA,12);
             // dd($datos['calzados']);
 
             return $datos;
