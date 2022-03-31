@@ -12,12 +12,17 @@
         }//end index
 
         private function cargar_datos(){
-        //declaración del arreglo
-        $datos = array();
-        //
-        $datos['nombre_pagina'] = 'Inicio';
+            //declaración del arreglo
+            $datos = array();
+            //
+            $datos['nombre_pagina'] = 'Inicio';
 
-        return $datos;
+            $tabla_calzados = new \App\Models\Tabla_calzados;
+            $datos['calzados'] = $tabla_calzados->calzados_limit(5);
+            $datos['calzados_actuales'] = $tabla_calzados->calzados_actuales(fecha_actual(),5);
+            // dd($datos['calzados_actuales']);
+
+            return $datos;
         }//end index
 
         public function crear_vista($nombre_vista = '', $contenido = array()) {

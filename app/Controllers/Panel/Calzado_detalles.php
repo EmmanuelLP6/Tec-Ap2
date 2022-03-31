@@ -125,7 +125,7 @@
             $calzado['precio'] = $this->request->getPost('precio_calzado');
             $calzado['descripcion'] = $this->request->getPost('descripcion_calzado');
             $calzado['destacado'] = $this->request->getPost('destacado_calzado');
-            
+            $calzado['fecha'] = fecha_actual();
             //verificar si tiene algo el input de file
             if(!empty($this->request->getFile('image_calzado')) && $this->request->getFile('image_calzado')->getSize() > 0){
                 $this->eliminar_archivo($calzado_anterior);

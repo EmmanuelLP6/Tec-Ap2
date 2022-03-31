@@ -1,5 +1,8 @@
 
 $(document).ready(function(){
+
+  let img_prev = base_url+'/img/product/prev.png';
+  let img_next = base_url+'/img/product/next.png';
 	"use strict";
 
 	var window_width 	 = $(window).width(),
@@ -54,7 +57,7 @@ $(document).ready(function(){
         autoplayTimeout: 5000,
         loop:true,
         nav:true,
-        navText:["<img src='"+ ruta_portal_img +"/banner/prev.png'>","<img src='"+ ruta_portal_img +"/banner/next.png'>"],
+        navText:[`<img src="${img_prev}">`,`<img src="${img_next}">`],
         dots:false
     });
 
@@ -67,7 +70,7 @@ $(document).ready(function(){
         autoplayTimeout: 5000,
         loop:true,
         nav:true,
-        navText:["<img src='img/product/prev.png'>","<img src='img/product/next.png'>"],
+        navText:[`<img src="${img_prev}">`,`<img src="${img_next}">`],
         dots:false
     });
 
@@ -92,7 +95,7 @@ $(document).ready(function(){
         autoplayTimeout: 5000,
         loop:true,
         nav:true,
-        navText:["<img src='img/product/prev.png'>","<img src='img/product/next.png'>"],
+        navText:[`<img src="${img_prev}">`,`<img src="${img_next}">`],
         dots:false
     });
 

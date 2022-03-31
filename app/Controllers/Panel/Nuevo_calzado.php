@@ -99,6 +99,7 @@
             $calzado['precio'] = $this->request->getPost('precio_calzado');
             $calzado['descripcion'] = $this->request->getPost('descripcion_calzado');
             $calzado['destacado'] = $this->request->getPost('destacado_calzado');
+            $calzado['fecha'] = fecha_actual();
             // $usuario['imagen_calzado'] = $this->request->getPost('');
             // dd($calzado);
 

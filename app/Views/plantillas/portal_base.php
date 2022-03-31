@@ -178,6 +178,9 @@
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
         <script src="<?= base_url(RECURSOS_PORTAL_JS.'gmaps.min.js'); ?>"></script>
         <script src="<?= base_url(RECURSOS_PORTAL_JS.'main.js'); ?>"></script>
+        <script>
+            let base_url = `<?= base_url("recursos-portal");?>`;
+        </script>
         <!-- ============================================================== -->
         <!-- This page plugins -->
         <?= $this->renderSection("js") ?>
