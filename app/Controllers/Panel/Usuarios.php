@@ -7,7 +7,7 @@
 
         private $session;
         private $permitido = TRUE;
-
+ 
         public function __construct(){
             //cargar el permiso roles
             helper('permisos_roles_helper');
@@ -54,7 +54,7 @@
             //Datos propios por vista y controlador
             $tabla_usuarios = new \App\Models\Tabla_usuarios;
             $datos['usuarios'] = $tabla_usuarios->data_table_usuarios($session->id_usuario);
-
+            // dd($datos['usuarios']);
             return $datos;
         }//end cargar_datos
 

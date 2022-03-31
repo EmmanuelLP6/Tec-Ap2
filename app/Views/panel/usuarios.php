@@ -104,7 +104,7 @@
         // Call the dataTables jQuery plugin
         $(document).ready(function() {
             $('#dataTable').DataTable({
-               'processing': true,
+                'processing': true,
                 "responsive": true,
                 "scrollX": true,
                 "language": {
@@ -115,10 +115,10 @@
                     "search":         "Buscar:",
                     "zeroRecords":    "Datos no disponibles por el momento",
                     "paginate": {
-                    "first":      "Primera",
-                    "last":       "Última",
-                    "next":       "Siguiente",
-                    "previous":   "Anterior"
+                        "first":      "Primera",
+                        "last":       "Última",
+                        "next":       "Siguiente",
+                        "previous":   "Anterior"
                     },
                 }//End languagee 
             });

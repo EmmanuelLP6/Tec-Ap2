@@ -3,7 +3,7 @@
 <?= $this->section("css") ?>
     <!-- BostrapValidator css -->
     <link rel="stylesheet" href="<?= base_url(RECURSOS_CONTENIDO_PLUGINS.'css/boostrapvalidator.min.css');?>">
-
+    
     <!-- Show the validation -->
     <style>
         .has-error .help-block{
@@ -110,6 +110,9 @@
                             <div class="col-lg-4">                       
                                 <div class="form-group">
                                     <label class="text-dark" for="">Sexo (<font color="red">*</font>):</label><br>
+                                    <select name="" id="">
+                                        <option value=""></option>
+                                    </select>
                                     <?php
                                         $select = array('class' => 'form-control form-select',
                                                             'id' => 'sexo'

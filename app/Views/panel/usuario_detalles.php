@@ -4,7 +4,7 @@
     <!-- BostrapValidator css -->
     <link rel="stylesheet" href="<?= base_url(RECURSOS_CONTENIDO_PLUGINS.'css/boostrapvalidator.min.css');?>">
 
-    <!-- Show the validation -->
+    <!-- Show the validation --> 
     <style>
         .has-error .help-block{
             line-height: 45px;

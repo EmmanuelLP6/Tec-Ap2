@@ -72,6 +72,12 @@ $routes->post('/registrar_calzado', 'Panel\Nuevo_calzado::registrar', ['as' => '
 //Editar calzado
 $routes->get('/detalles_calzado/(:num)', 'Panel\Calzado_detalles::index/$1', ['as' => 'detalles_calzado']);
 $routes->post('/editar_calzado', 'Panel\Calzado_detalles::editar', ['as' => 'editar_calzado']);
+
+//Ofertas
+$routes->get('/ofertas', 'Panel\Ofertas::index', ['as' => 'ofertas']);
+$routes->get('/oferta_nueva/(:num)', 'Panel\Oferta_nueva::index/$1', ['as' => 'oferta_nueva']);
+$routes->post('/actualizar_oferta', 'Panel\Oferta_nueva::actualizar', ['as' => 'actualizar_oferta']);
+$routes->get('/eliminar_oferta/(:num)', 'Panel\Oferta_nueva::eliminar/$1', ['as' => 'eliminar_oferta']);
 /*
  * --------------------------------------------------------------------
  * Additional Routing

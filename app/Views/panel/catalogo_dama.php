@@ -68,9 +68,9 @@
                                                     </span>
                                                     <span class="text">Eliminar</span>
                                                 </a><br>
-                                                <a href="'.route_to("eliminar_usuario",$calzado_dama->id_calzado).'" class="btn btn-info btn-icon-split btn-sm">
+                                                <a href="'.route_to("oferta_nueva",$calzado_dama->id_calzado).'" class="btn btn-info btn-icon-split btn-sm">
                                                     <span class="icon text-white-50">
-                                                        <i class="fa fa-trash"></i>
+                                                        <i class="fa fa-tag"></i>
                                                     </span>
                                                     <span class="text">Oferta</span>
                                                 </a>

@@ -115,7 +115,6 @@
 
             //Declaración del arreglo 
             $usuario = array();
-            $usuario['estatus_usuario'] = ESTATUS_HABILITADO;
             $usuario['nombre_usuario'] = $this->request->getPost('nombre');
             $usuario['ap_paterno_usuario'] = $this->request->getPost('apellido_paterno');
             $usuario['ap_materno_usuario'] = $this->request->getPost('apellido_materno');

@@ -2,7 +2,7 @@
     namespace App\Controllers\Panel;
     use App\Controllers\BaseController;
     use App\Libraries\Permisos;
-
+    
     class Usuario_nuevo extends BaseController{
 
         private $session;
@@ -75,7 +75,6 @@
                 return $file_name;
             }//end if la imagen cumple con los requisitos
             else{
-                mensaje('Tu imagen no cumple con los requisitos solicitados.', DANGER_ALERT);
                 return NULL;
             }//end else
         }//end subir_archivo
@@ -109,7 +108,6 @@
                 return redirect()->to(route_to('usuarios'));
             }//end if se inserta el usuario
             else{
-                $tabla_personas->delete($id_persona_insertada);
                 mensaje("Hubo un error al registrar al usuario. Intente nuevamente, por favor", DANGER_ALERT);
                 return $this->index();
             }//end else se inserta el usuario

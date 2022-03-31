@@ -22,7 +22,7 @@
         $menu_opcion['is_active'] = ($pagina_actual == TAREA_DASHBOARD) ? TRUE : FALSE ;
         $menu_opcion['href'] = route_to('dashboard');
         $menu_opcion['text'] = 'Dashboard';
-        $menu_opcion['icon'] = 'fa fa-address-book';
+        $menu_opcion['icon'] = 'fa fa-calculator';
         $menu_opcion['submenu'] = array();
         $menu['inicio'] = $menu_opcion;
 
@@ -59,7 +59,7 @@
         $menu_opcion['is_active'] = ($pagina_actual == TAREA_OFERTA) ? TRUE : FALSE ;
         $menu_opcion['href'] = route_to('ofertas');
         $menu_opcion['text'] = 'Ofertas';
-        $menu_opcion['icon'] = 'fa fa-address-book';
+        $menu_opcion['icon'] = 'fa fa-tag';
         $menu_opcion['submenu'] = array();
         $menu['ofertas'] = $menu_opcion;
 
