@@ -134,6 +134,7 @@ define("PAGINA_INICIO",'pagina_inicio');
 define("PAGINA_OFERTA",'pagina_oferta');
 define("PAGINA_CATALOGO_DAMA",'pagina_catalogo_dama');
 define("PAGINA_CATALOGO_CABALLERO",'pagina_catalogo_caballero');
+define("PAGINA_CATALOGO",'pagina_catalogo');
 define("PAGINA_GALERIA",'pagina_galeria');
 define("PAGINA_CONTACTO",'pagina_contacto');
 define("PAGINA_ACERCA_DE",'pagina_acerca_de');

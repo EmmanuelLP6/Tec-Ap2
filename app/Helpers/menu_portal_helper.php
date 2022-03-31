@@ -28,13 +28,13 @@
 
         //Pagina Catalogo Dama
         $menu_opcion = array();
-        $menu_opcion['is_active'] = ($pagina_actual == PAGINA_CATALOGO_DAMA) ? TRUE : FALSE ;
+        $menu_opcion['is_active'] = ($pagina_actual == PAGINA_CATALOGO) ? TRUE : FALSE ;
         $menu_opcion['href'] = '#';
         $menu_opcion['text'] = 'Catálogo';
         $menu_opcion['icon'] = 'fa fa-book';
         $menu_opcion['submenu'] = array();
             $menu_sub_opcion = array();
-            $menu_sub_opcion['href'] = route_to('catalogo_dama');
+            $menu_sub_opcion['href'] = route_to('categoria_dama');
             $menu_sub_opcion['text'] = 'Dama';
             $menu_opcion['submenu']['dama'] = $menu_sub_opcion;
             $menu_sub_opcion = array();
@@ -90,7 +90,7 @@
         $html.='<ul class="nav navbar-nav menu_nav ml-auto">';
             foreach ($menu as $opcion) {
                 if(sizeof($opcion['submenu']) > 0){
-                    $html.='<li class="nav-item submenu dropdown">
+                    $html.='<li class="nav-item submenu dropdown';$html.= ($opcion['is_active'] != FALSE) ? ' active ' : '' ;$html.='">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                                 aria-expanded="false">'.$opcion['text'].'</a>
                                 <ul class="dropdown-menu">';

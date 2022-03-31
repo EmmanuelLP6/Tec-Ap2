@@ -41,6 +41,9 @@ $routes->get('/cerrar_acceso', 'Usuario\Cerrar_acceso::index',['as' => 'cerrar_a
 //validar acceso
 $routes->post('/validar_acceso', 'Usuario\Acceso::validar_acceso',['as' => 'validar_acceso']);
 
+// Categorias
+$routes->get('/categoria_dama', 'Portal\Dama::index',['as' => 'categoria_dama']);
+
 
 
 /*

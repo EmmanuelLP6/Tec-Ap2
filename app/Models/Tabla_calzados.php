@@ -46,7 +46,7 @@
                         ')
                 ->orderBy('modelo', 'ASC')
                 ->limit($limit)
-                ->findAll();
+                ->find();
             return $resultado;
         }// 
 
@@ -59,9 +59,23 @@
                 ->orderBy('modelo', 'ASC')
                 ->where('fecha',$fecha)
                 ->limit($limit)
-                ->findAll();
+                ->findA();
             return $resultado;
         }// 
+
+        public function oferta_calzados($id_categoria = 0, $limit = 0){
+            $resultado = $this
+                        ->select('
+                                    calzados.estatus_calzado, calzados.id_calzado, calzados.marca, calzados.modelo, calzados.color, calzados.talla,
+                                    calzados.genero, calzados.precio, calzados.imagen_calzado, calzados.destacado, calzados.fecha, ofertas.estatus_ofertas,
+                                    ofertas.id_oferta, ofertas.descuento, ofertas.fin_oferta, ofertas.id_calzado
+                                ')
+                        ->where('calzados.genero', $id_categoria)
+                        ->join('ofertas','calzados.id_calzado= ofertas.id_calzado', 'left')
+                        ->limit($limit)
+                        ->find();
+            return $resultado;
+        }//end obtener_oferta_calzado
     }//End Model calzados
     
 
